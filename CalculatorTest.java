@@ -4,52 +4,53 @@ import org.junit.jupiter.api.Test;
 public class CalculatorTest {
     private Calculator calculator = new Calculator();
 
+    public CalculatorTest() {
+    }
+
     @Test
     public void testAdd() {
-        double result = calculator.add(2, 3);
-        Assertions.assertEquals(5, result);
+        double result = this.calculator.add(2.0, 3.0);
+        Assertions.assertEquals(5.0, result);
     }
 
     @Test
     public void testSubtract() {
-        double result = calculator.subtract(5, 3);
-        Assertions.assertEquals(2, result);
+        double result = this.calculator.subtract(5.0, 3.0);
+        Assertions.assertEquals(2.0, result);
     }
 
     @Test
     public void testMultiply() {
-        double result = calculator.multiply(2, 3);
-        Assertions.assertEquals(6, result);
+        double result = this.calculator.multiply(2.0, 3.0);
+        Assertions.assertEquals(6.0, result);
     }
 
     @Test
     public void testDivide() {
-        double result = calculator.divide(6, 3);
-        Assertions.assertEquals(2, result);
-        Assertions.assertThrows(IllegalArgumentException.class, () -> calculator.divide(6, 0));
+        double result = this.calculator.divide(6.0, 3.0);
+        Assertions.assertEquals(2.0, result);
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            this.calculator.divide(6.0, 0.0);
+        });
     }
 
     @Test
     public void testIsPositive() {
-        boolean result = calculator.isPositive(5);
+        boolean result = this.calculator.isPositive(5);
         Assertions.assertTrue(result);
-
-        result = calculator.isPositive(0);
+        result = this.calculator.isPositive(0);
         Assertions.assertFalse(result);
-
-        result = calculator.isPositive(-5);
+        result = this.calculator.isPositive(-5);
         Assertions.assertFalse(result);
     }
 
     @Test
     public void testIsNegative() {
-        boolean result = calculator.isNegative(-5);
+        boolean result = this.calculator.isNegative(-5);
         Assertions.assertTrue(result);
-
-        result = calculator.isNegative(0);
+        result = this.calculator.isNegative(0);
         Assertions.assertFalse(result);
-
-        result = calculator.isNegative(5);
+        result = this.calculator.isNegative(5);
         Assertions.assertFalse(result);
     }
 }

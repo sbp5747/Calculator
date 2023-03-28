@@ -1,7 +1,7 @@
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
-
 public class Calculator {
+    public Calculator() {
+    }
+
     public double add(double a, double b) {
         return a + b;
     }
@@ -15,10 +15,11 @@ public class Calculator {
     }
 
     public double divide(double a, double b) {
-        if (b == 0) {
+        if (b == 0.0) {
             throw new IllegalArgumentException("Cannot divide by zero");
+        } else {
+            return a / b;
         }
-        return a / b;
     }
 
     public boolean isPositive(int a) {
